@@ -22,3 +22,10 @@ class Login:
         self.passwordE = Entry(self.loginWindow, show="*"
                                ,relief=FLAT,textvariable=self.passwordS)
         self.passwordE.place(x=100, y=150)
+
+        self.username = self.usernameS.get()
+        self.password = self.passwordE.get()
+
+        self.submit = Button(self.loginWindow, text="submit", pady=5, padx=20
+                             , command=self.validate)
+        self.submit.place(x=100, y=150)
