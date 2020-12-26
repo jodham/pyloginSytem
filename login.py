@@ -29,3 +29,20 @@ class Login:
         self.submit = Button(self.loginWindow, text="submit", pady=5, padx=20
                              , command=self.validate)
         self.submit.place(x=100, y=150)
+
+        def validate(self):
+            data = (self.username)
+            inputData = (self.username, self.password,)
+            try:
+                if(db.validateData(data, inputData)):
+                    messagebox.showinfo("Successful","Login was Successful")
+                else:
+                    messagebox.showerror("Error","wrong credentials")
+            except IndexError("Error","Wrong Credentials")
+
+                def run (self):
+                    self.loginWindow.mainloop()
+
+                    class Register:
+                        def __init__(self):
+                            self
