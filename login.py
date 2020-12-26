@@ -30,7 +30,7 @@ class Login:
                              , command=self.validate)
         self.submit.place(x=100, y=150)
 
-        def validate(self):
+    def validate(self):
             data = (self.username)
             inputData = (self.username, self.password,)
             try:
@@ -43,7 +43,7 @@ class Login:
                 def run (self):
                     self.loginWindow.mainloop()
 
-                    class Register:
+    class Register:
                         def __init__(self):
                             self.registerWindow = Tk()
                             self.registerWindow.title("Register with Python")
@@ -71,10 +71,10 @@ class Login:
                             self.hashed = bcrypt.hashpw(self.password.encode(),self.salt)
 
 
-                            def run(self):
+                        def run(self):
                                    self.registerWindow.mainloop()
 
-                            def add(self):
+                        def add(self):
                                 data=(self.username,)
 
                                 result = db.searchData(data)
