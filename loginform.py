@@ -1,5 +1,5 @@
 from tkinter import *
-from login import Login, Register
+from login import Login,Register
 
 class MainWindow:
     def __init__(self):
@@ -16,13 +16,13 @@ class MainWindow:
     def run(self):
          self.app.mainloop()
 
-    def Login(self):
+    def login(self):
         loginTk = Login()
         loginTk.run()
 
-    def Register(self):
+    def register(self):
         registerTk = Register()
-        registerTk.run
+        registerTk.run()
 
 
 

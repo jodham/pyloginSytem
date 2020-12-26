@@ -27,7 +27,7 @@ class Database:
 
      rows = self.curr.fetchall()
      if rows == []:
-            return 1
+        return 1
 
 
 def validateData(self, data, inputData):
