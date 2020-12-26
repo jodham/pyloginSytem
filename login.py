@@ -38,11 +38,53 @@ class Login:
                     messagebox.showinfo("Successful","Login was Successful")
                 else:
                     messagebox.showerror("Error","wrong credentials")
-            except IndexError("Error","Wrong Credentials")
+            except IndexError("Error","Wrong Credentials"):
 
                 def run (self):
                     self.loginWindow.mainloop()
 
                     class Register:
                         def __init__(self):
-                            self
+                            self.registerWindow = Tk()
+                            self.registerWindow.title("Register with Python")
+                            self.registerWindow.geometry("300x250")
+                            self.label = Label(self.registerWindow, text="Register")
+                            self.label.place(x=95, y=40)
+
+                            self.usernameS = StringVar()
+                            self.passwordS = StringVar()
+
+                            self.usernameE = Entry(self.registerWindow, relief=FLAT
+                                                   , textvariable= self.usernameS)
+                            self.usernameE.place(x=70, y=80)
+                            self.passwordE = Entry(self.registerWindow, show='*' , relief=FLAT
+                                                   , textvariable= self.passwordS)
+                            self.passwordE.place(x=70, y=120)
+                            self.submit = Button(self.registerWindow, text="SUBMIT"
+                                                   ,pady=5,padx=20,command=self.add)
+                            self.submit.place(x=70, y=150)
+
+                            self.username = self.usernameS.get()
+                            self.password = self.passwordS.get()
+
+                            self.salt = bcrypt.gensalt()
+                            self.hashed = bcrypt.hashpw(self.password.encode(),self.salt)
+
+
+                            def run(self):
+                                   self.registerWindow.mainloop()
+
+                            def add(self):
+                                data=(self.username,)
+
+                                result = db.searchData(data)
+
+                                print(result)
+
+                                if result != 0:
+                                    data = (self.username, self.hashed)
+                                    db.insertData(data)
+                                    messagebox.showinfo("Successful","username was added")
+                                else:
+                                    messagebox.showwarning("warnig","Username already exists")
+
