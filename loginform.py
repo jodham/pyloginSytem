@@ -1,4 +1,5 @@
 from tkinter import *
+from login import Login, Register
 
 class MainWindow:
     def __init__(self):
