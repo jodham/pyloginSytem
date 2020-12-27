@@ -11,14 +11,18 @@ class Login:
         self.loginWindow = Tk()
         self.loginWindow.title("Login")
         self.loginWindow.geometry("300x250")
-        self.label = Label(self.loginWindow, text="login")
-        self.label.place(x=95, y=40)
+        self.label = Label(self.loginWindow, text="login", font="times 13 bold")
+        self.label.place(x=110, y=30)
 
         self.usernameS = StringVar()
         self.passwordS = StringVar()
 
+        self.labe1 = Label(self.loginWindow,text="Username", font="times 12 bold")
+        self.labe1.place(x=100, y=65)
         self.usernameE = Entry(self.loginWindow, relief =FLAT, textvariable=self.usernameS)
-        self.usernameE.place(x=100, y=120)
+        self.usernameE.place(x=100, y=100)
+        self.labe2 = Label(self.loginWindow,text="Password", font="times 12 bold")
+        self.labe2.place(x=100, y=125)
         self.passwordE = Entry(self.loginWindow, show="*"
                                ,relief=FLAT,textvariable=self.passwordS)
         self.passwordE.place(x=100, y=150)
@@ -28,13 +32,13 @@ class Login:
 
         self.submit = Button(self.loginWindow, text="submit", pady=5, padx=20
                              , command=self.validate)
-        self.submit.place(x=100, y=150)
+        self.submit.place(x=100, y=180)
 
     def validate(self):
             data = (self.username)
             inputData = (self.username, self.password,)
             try:
-             if(db.validateData(data, inputData)):
+             if db.validateData(data, inputData):
                     messagebox.showinfo("Successful","Login was Successful")
              else:
                 messagebox.showerror("Error","wrong credentials")
@@ -51,14 +55,18 @@ class Register:
         self.registerWindow.title("Register with Python")
         self.registerWindow.geometry("300x250")
         self.label = Label(self.registerWindow, text="Register")
-        self.label.place(x=95, y=40)
+        self.label.place(x=110, y=20)
 
         self.usernameS = StringVar()
         self.passwordS = StringVar()
 
+        self.label1 = Label(self.registerWindow,text="Username", font="times 12 bold")
+        self.label1.place(x=70, y=50)
         self.usernameE = Entry(self.registerWindow, relief=FLAT
                                , textvariable= self.usernameS)
-        self.usernameE.place(x=70, y=80)
+        self.usernameE.place(x=70, y=75)
+        self.label2 = Label(self.registerWindow,text="Password", font="times 12 bold")
+        self.label2.place(x=70, y=95)
         self.passwordE = Entry(self.registerWindow, show='*' , relief=FLAT
                                , textvariable= self.passwordS)
         self.passwordE.place(x=70, y=120)

@@ -16,13 +16,13 @@ class MainWindow:
     def run(self):
          self.app.mainloop()
 
-    def login(self):
-        loginTk = Login()
-        loginTk.run()
+def login():
+        loginWindow = Login()
+        loginWindow.run()
 
-    def register(self):
-        registerTk = Register()
-        registerTk.run()
+def register():
+        registerWindow = Register()
+        registerWindow.run()
 
 
 

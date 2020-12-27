@@ -28,17 +28,17 @@ class Database:
      rows = self.curr.fetchall()
      if rows == []:
         return 1
+     return 0
 
+    def validateData(self, data, inputData):
+        print(data)
+        print(inputData)
 
-def validateData(self, data, inputData):
-    print(data)
-    print(inputData)
+        validate_data="""SELECT * FROM cred WHERE username= (?);"""
+        self.curr.execute(validate_data, data)
+        row = self.curr.fetchall()
 
-    validate_data="""SELECT * FROM cred WHERE username= (?);"""
-    self.curr.execute(validate_data, data)
-    row = self.curr.fetchall()
-
-    if row[0][1] == inputData[0]:
-     return row[0][2] == bcrypt.hashpw(inputData[1].encode(),row[0][2])
+        if row[0][1] == inputData[0]:
+         return row[0][2] == bcrypt.hashpw(inputData[1].encode(),row[0][2])
 
 
